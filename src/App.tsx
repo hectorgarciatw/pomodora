@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Play, Pause, RotateCcw, Coffee, Brain, Settings, Moon, Sun } from "lucide-react";
 
 type TimerMode = "trabajo" | "descanso";
