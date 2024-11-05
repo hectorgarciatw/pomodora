@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Play, Pause, RotateCcw, Coffee, Brain, Settings, Moon, Sun } from "lucide-react";
 
 //Componentes
-import Footer from "./components/Footer";
+import Footer from "./components/Footer.tsx";
 
 type TimerMode = "trabajo" | "descanso";
 
