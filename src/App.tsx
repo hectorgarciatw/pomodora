@@ -7,8 +7,10 @@ import Footer from "./components/Footer.tsx";
 type TimerMode = "trabajo" | "descanso";
 
 function App() {
+    //El tiempo inicial de la app en segundos
     const [time, setTime] = useState(25 * 60);
     const [isActive, setIsActive] = useState(false);
+    //Modo de funcionamiento Trabajo o Descanso
     const [mode, setMode] = useState<TimerMode>("trabajo");
     const [workTime, setWorkTime] = useState(25);
     const [breakTime, setBreakTime] = useState(5);
@@ -18,33 +20,39 @@ function App() {
         let interval: number | undefined;
 
         if (isActive && time > 0) {
+            //Empieza a correr el timer
             interval = setInterval(() => {
                 setTime((prevTime) => prevTime - 1);
             }, 1000);
         } else if (time === 0) {
+            //Culminación del período de tiempo
             const audio = new Audio("https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3");
             audio.play();
             setMode(mode === "trabajo" ? "descanso" : "trabajo");
             setTime((mode === "trabajo" ? breakTime : workTime) * 60);
         }
-
+        //Limpiador del intervalo
         return () => clearInterval(interval);
     }, [isActive, time, mode, workTime, breakTime]);
 
+    //Alterar el estado del reloj
     const toggleTimer = () => setIsActive(!isActive);
 
+    //Resetea el timer
     const resetTimer = () => {
         setIsActive(false);
         setTime(workTime * 60);
         setMode("trabajo");
     };
 
+    //Se establece el formáto del tiempo en mm:ss
     const formatTime = (seconds: number) => {
         const mins = Math.floor(seconds / 60);
         const secs = seconds % 60;
         return `${mins.toString().padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
     };
 
+    //Obtención del porcentaje de tiempo transcurrido para mostrar en el slider indicador
     const progress = ((mode === "trabajo" ? workTime * 60 - time : breakTime * 60 - time) / (mode === "trabajo" ? workTime * 60 : breakTime * 60)) * 100;
 
     return (
