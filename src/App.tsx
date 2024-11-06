@@ -76,7 +76,7 @@ function App() {
                             <div className="space-y-4 mb-6 animate-fade-in">
                                 <div className="flex justify-between items-center">
                                     <label className="text-white flex items-center gap-2">
-                                        <Dumbbell className="w-4 h-4" /> Minutos de trabajo:
+                                        <Dumbbell className="w-6 h-6" /> Tiempo de trabajo (minutos):
                                     </label>
                                     <input
                                         type="number"
@@ -87,7 +87,7 @@ function App() {
                                 </div>
                                 <div className="flex justify-between items-center">
                                     <label className="text-white flex items-center gap-2">
-                                        <Coffee className="w-4 h-4" /> Minutos de descanso:
+                                        <Coffee className="w-6 h-6" /> Tiempo de descanso (minutos):
                                     </label>
                                     <input
                                         type="number"

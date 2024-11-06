@@ -48,7 +48,7 @@
 .glass-card {
     backdrop-filter: blur(12px);
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+    box-shadow: 0 2px 2px 0 rgba(139, 92, 246, 0.5), 0 8px 2px 0 rgba(236, 72, 153, 0.4), 0 8px 2px 0 rgba(232, 121, 249, 0.3);
 }
 
 .pulse-ring::before {
