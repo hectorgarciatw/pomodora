@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
-import { Play, Pause, RotateCcw, Coffee, Brain, Settings, Moon, Sun } from "lucide-react";
+import { Play, Pause, RotateCcw, Settings, Moon, Sun, Dumbbell, Coffee } from "lucide-react";
 
 //Componentes
 import Footer from "./components/Footer.tsx";
+
+//Manejo de iconos animados
+import "boxicons/css/boxicons.min.css";
 
 type TimerMode = "trabajo" | "descanso";
 
@@ -73,7 +76,7 @@ function App() {
                             <div className="space-y-4 mb-6 animate-fade-in">
                                 <div className="flex justify-between items-center">
                                     <label className="text-white flex items-center gap-2">
-                                        <Sun className="w-4 h-4" /> Minutos de trabajo:
+                                        <Dumbbell className="w-4 h-4" /> Minutos de trabajo:
                                     </label>
                                     <input
                                         type="number"
@@ -84,7 +87,7 @@ function App() {
                                 </div>
                                 <div className="flex justify-between items-center">
                                     <label className="text-white flex items-center gap-2">
-                                        <Moon className="w-4 h-4" /> Minutos de descanso:
+                                        <Coffee className="w-4 h-4" /> Minutos de descanso:
                                     </label>
                                     <input
                                         type="number"
@@ -106,12 +109,10 @@ function App() {
                                     <div className="text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-white/80 mb-2 text-center tabular-nums">{formatTime(time)}</div>
                                     <div className="absolute -top-4 right-0 transform translate-x-full">
                                         {mode === "trabajo" ? (
-                                            <div className="relative text-violet-400">
-                                                <Brain className="w-8 h-8" />
-                                            </div>
+                                            <i className={`bx bx-glasses-alt bx-lg ${isActive ? "bx-tada" : ""}`} style={{ color: "#fff" }}></i>
                                         ) : (
                                             <div className="relative text-fuchsia-400">
-                                                <Coffee className="w-8 h-8" />
+                                                <i className={`bx bx-coffee bx-lg ${isActive ? "bx-tada" : ""}`} style={{ color: "#fff" }}></i>
                                             </div>
                                         )}
                                     </div>
@@ -135,9 +136,10 @@ function App() {
                                 </button>
                             </div>
                         </div>
-
                         <div className="mt-8 text-center">
-                            <p className="text-white/80 text-sm font-medium">{mode === "trabajo" ? "¡Hora de concentrarse!" : "¡Tómate un descanso!"}</p>
+                            <p className="text-white/80 text-xl font-medium">
+                                {mode === "trabajo" ? (isActive ? "Momento de trabajo en curso" : "Presione PLAY para comenzar el trabajo") : isActive ? "Momento de descanso en curso..." : "Continuar con el momento de descanso"}
+                            </p>
                         </div>
                     </div>
                 </div>
