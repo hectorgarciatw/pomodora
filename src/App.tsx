@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Play, Pause, RotateCcw, Settings, Moon, Sun, Dumbbell, Coffee } from "lucide-react";
+import { Play, Pause, RotateCcw, Settings, Dumbbell, Coffee } from "lucide-react";
 
 //Componentes
 import Footer from "./components/Footer.tsx";
